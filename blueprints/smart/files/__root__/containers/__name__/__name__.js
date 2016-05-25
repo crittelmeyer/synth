@@ -1,28 +1,14 @@
-import React from 'react'
+/* @flow */
 import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
+import { createSelector } from 'reselect'
+import { someActionCreator } from './<%= dashesEntityName %>'
 
-type Props = {
-
-}
-export class <%= pascalEntityName %> extends React.Component {
-  props: Props;
-
-  render () {
-    return (
-      <div></div>
-    )
-  }
+import <%= pascalEntityName %> from 'components/<%= pascalEntityName %>'
+const mapStateToProps = (state) => ({
+  someProp: state.<%= camelEntityName %>.someProp
+})
+const mapActionCreators = {
+  someActionCreator
 }
 
-const mapStateToProps = (state) => {
-  return {}
-}
-const mapDispatchToProps = (dispatch) => {
-  return {}
-}
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(<%= pascalEntityName %>)
+export default connect(mapStateToProps, mapActionCreators)(<%= pascalEntityName %>)
