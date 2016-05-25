@@ -1,12 +1,12 @@
 /* @flow */
 // We only need to import the modules necessary for initial render
-import CoreLayout from '../layouts/CoreLayout/CoreLayout'
+import CoreLayout from 'containers/CoreLayoutContainer'
 import Home from './Home'
 import TheWireCharactersRoute from './TheWireCharacters'
 
 export const createRoutes = (store: Object) => ({
   path: '/',
-  component: CoreLayout,
+  ...CoreLayout(store),
   indexRoute: Home,
   childRoutes: [
     TheWireCharactersRoute(store)
