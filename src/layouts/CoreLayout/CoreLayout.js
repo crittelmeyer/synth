@@ -5,6 +5,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import { fade } from 'material-ui/utils/colorManipulator'
 import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme'
 import globalStyles from 'styles/js/global_styles'
+import Helmet from 'react-helmet'
 
 import Header from '../../components/Header'
 import MainMenu from '../../components/MainMenu'
@@ -82,6 +83,24 @@ export const CoreLayout = (props: Props) => {
   return (
   <MuiThemeProvider muiTheme={muiTheme}>
     <div style={styles.mainContainer}>
+      <Helmet
+        htmlAttributes={{'lang': 'en'}}
+        title="Cultivāt"
+        titleTemplate="Cultivāt.com - %s"
+        defaultTitle="Cultivāt"
+        meta={[
+          {'name': 'description', 'content': 'Cultivāt'},
+          {'name': 'viewport', 'content': 'width=device-width, initial-scale=1'},
+          {'charset': 'utf-8'}
+        ]}
+        link={[
+          {'rel': 'canonical', 'href': 'http://cultivat.com/example'},
+          {'rel': 'apple-touch-icon', 'href': 'http://cultivat.com/img/apple-touch-icon-57x57.png'},
+          {'rel': 'apple-touch-icon', 'sizes': '72x72', 'href': 'http://cultivat.com/img/apple-touch-icon-72x72.png'},
+          {'rel': 'stylesheet', 'href': 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'}
+
+        ]}
+      />
       <MainMenu
         sizes={{
           headerHeight: HEADER_HEIGHT,
