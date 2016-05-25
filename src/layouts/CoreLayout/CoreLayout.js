@@ -1,13 +1,18 @@
 import React from 'react'
+import getMuiTheme from 'material-ui/styles/getMuiTheme'
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+
 import Header from '../../components/Header'
 
 export const CoreLayout = ({ children }) => (
-  <div>
-    <Header />
+  <MuiThemeProvider muiTheme={getMuiTheme()}>
     <div>
-      {children}
+      <Header />
+      <div>
+        {children}
+      </div>
     </div>
-  </div>
+  </MuiThemeProvider>
 )
 
 CoreLayout.propTypes = {
