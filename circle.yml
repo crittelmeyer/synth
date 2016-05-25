@@ -1,0 +1,5 @@
+test:
+  override:
+    - npm test
+    - npm run flow:check
+    - npm run lint
