@@ -1,13 +1,20 @@
 import { applyMiddleware, compose, createStore } from 'redux'
 import { routerMiddleware } from 'react-router-redux'
-import thunk from 'redux-thunk'
+import handleTransitions from 'redux-history-transitions'
+import createSagaMiddleware from 'redux-saga'
 import makeRootReducer from './reducers'
+import { rootSaga } from 'sagas'
 
-export default (initialState = {}, history) => {
+export default (initialState: Object = {}, history: Object) => {
   // ======================================================
   // Middleware Configuration
   // ======================================================
-  const middleware = [thunk, routerMiddleware(history)]
+  const sagaMiddleware = createSagaMiddleware()
+
+  const middleware = [
+    sagaMiddleware,
+    routerMiddleware(history)
+  ]
 
   // ======================================================
   // Store Enhancers
@@ -28,10 +35,13 @@ export default (initialState = {}, history) => {
     initialState,
     compose(
       applyMiddleware(...middleware),
+      handleTransitions(history),
       ...enhancers
     )
   )
   store.asyncReducers = {}
+
+  sagaMiddleware.run(rootSaga)
 
   if (module.hot) {
     module.hot.accept('./reducers', () => {
