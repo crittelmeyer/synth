@@ -79,7 +79,7 @@ export const MENU_ITEMS = [
   {
     text: 'React-Slick',
     icon: <ContentDrafts style={styles.icon} color={theme.palette.alternateTextColor} />,
-    href: '/the-wire-gallery'
+    href: '/gallery'
   }
 ]
 

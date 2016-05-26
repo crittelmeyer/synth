@@ -1,6 +1,6 @@
 /* @flow */
 import { connect } from 'react-redux'
-import { createSelector } from 'reselect'
+// import { createSelector } from 'reselect'
 // import { fetchCharacters, filterCharacters, searchCharacters } from '../modules/the-wire-characters'
 
 import Gallery from 'components/Gallery'
