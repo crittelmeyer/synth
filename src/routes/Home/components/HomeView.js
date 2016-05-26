@@ -9,7 +9,8 @@ export const HomeView = () => (
       an introduction, general reference & POC for the Cultivāt tech stack.
     </p>
     <p>
-      The dual pillars that make the foundation of this tech stack are <a href="https://facebook.github.io/react/">React</a> and <a href="https://github.com/reactjs/redux">Redux</a>.
+      The dual pillars that make the foundation of this tech stack are
+      <a href='https://facebook.github.io/react/'>React</a> and <a href='https://github.com/reactjs/redux'>Redux</a>.
     </p>
     <p>
       React is a framework, created by engineers at Facebook, for building
@@ -56,17 +57,17 @@ export const HomeView = () => (
       in powerful ways to form more complex applications.
     </p>
     <ul>
-      <li><a href="https://github.com/reactjs/react-redux">react-redux</a></li>
-      <li><a href="https://github.com/reactjs/react-router">react router</a></li>
-      <li><a href="https://github.com/nfl/react-helmet">react-helmet</a></li>
-      <li><a href="https://github.com/reactjs/reselect">reselect</a></li>
-      <li><a href="http://www.material-ui.com">material ui</a></li>
-      <li><a href="https://github.com/yelouafi/redux-saga">redux-saga</a></li>
+      <li><a href='https://github.com/reactjs/react-redux'>react-redux</a></li>
+      <li><a href='https://github.com/reactjs/react-router'>react router</a></li>
+      <li><a href='https://github.com/nfl/react-helmet'>react-helmet</a></li>
+      <li><a href='https://github.com/reactjs/reselect'>reselect</a></li>
+      <li><a href='http://www.material-ui.com'>material ui</a></li>
+      <li><a href='https://github.com/yelouafi/redux-saga'>redux-saga</a></li>
     </ul>
     <p>
       Many of these libraries are inluded in the react-redux-starter-kit
       boilerplate package, found here:&nbsp;
-      <a href="https://github.com/davezuko/react-redux-starter-kit">
+      <a href='https://github.com/davezuko/react-redux-starter-kit'>
         React Redux Starter Kit
       </a>
     </p>

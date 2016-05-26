@@ -1,15 +1,16 @@
 /* @flow */
 import React from 'react'
-import { withRouter } from 'react-router'
 import globalStyles from 'styles/js/global_styles'
-
-import { Drawer, List, ListItem } from 'material-ui'
+import { Drawer } from 'material-ui'
 
 import ContentInbox from 'material-ui/svg-icons/content/inbox'
 import ActionGrade from 'material-ui/svg-icons/action/grade'
 import ContentSend from 'material-ui/svg-icons/content/send'
 import ContentDrafts from 'material-ui/svg-icons/content/drafts'
 import zIndex from 'material-ui/styles/zIndex'
+
+import MenuItem from './MenuItem'
+import SubMenu from './SubMenu'
 
 type Sizes = {
   headerHeight: number,
@@ -118,8 +119,9 @@ const styles = {
     whiteSpace: 'nowrap'
   }
 }
-//TODO: determine if width={props.sizes.width} below in <ListItem> is actually changing anything visually
-//TODO: woah, and apparently same for the Drawer down below - in both of these cases, at some point it was no longer
+
+// TODO: determine if width={props.sizes.width} below in <ListItem> is actually changing anything visually
+// TODO: woah, and apparently same for the Drawer down below - in both of these cases, at some point it was no longer
 // pulling from the right prop, and I never noticed... I wonder if width was broken and I just happened to not notice?
 export const MainMenu = (props: Props) => (
   <div>
@@ -133,41 +135,32 @@ export const MainMenu = (props: Props) => (
       <img src={`http://lorempixel.com/${props.sizes.width}/${props.sizes.headerHeight}/technics`} />
 
       {MENU_ITEMS.map((item: Object, index: number) => (
-        <ListItem
+        <MenuItem
           key={index}
+          id={index}
           width={props.sizes.width}
           style={styles.menuItem(props.sizes)}
-          primaryText={item.text}
-          children={item.icon}
-          onTouchTap={() => { return props.toggleMenu({ ...item, id: index }) }}
+          item={item}
+          toggleMenu={props.toggleMenu}
         />
       ))}
     </Drawer>
     {MENU_ITEMS.map((item: Object, index: number) => (
       item.subMenuItems && item.subMenuItems.length > 0
-        ? (
-          <Drawer
-            key={index}
-            containerStyle={{
-              ...props.style,
-              ...styles.subMenu(props.contentLeft, props.sizes, props.open === index),
-            }}
-            onRequestChange={() => { return props.toggleMenu({...item, id: index }) }}
-            open={props.open === index}
-            width={props.sizes.subMenuWidth}
-            docked={false}
-          >
-            {item.subMenuItems.map((subMenuItem: Object, subIndex: number) => (
-              <ListItem
-                key={subIndex}
-                onTouchTap={() => props.selectSubMenuItem({ ...subMenuItem, id: subIndex })}
-                style={styles.subMenuItem}
-              >
-                {subMenuItem.text}
-              </ListItem>
-            ))}
-          </Drawer>
-        )
+        ? <SubMenu
+          key={index}
+          id={index}
+          item={item}
+          toggleMenu={props.toggleMenu}
+          selectSubMenuItem={props.selectSubMenuItem}
+          style={{
+            ...props.style,
+            ...styles.subMenu(props.contentLeft, props.sizes, props.open === index)
+          }}
+          subMenuItemStyle={styles.subMenuItem}
+          open={props.open}
+          width={props.sizes.subMenuWidth}
+        />
         : null
     ))}
   </div>
@@ -188,4 +181,4 @@ MainMenu.propTypes = {
   style: React.PropTypes.object.isRequired
 }
 
-export default withRouter(MainMenu)
+export default MainMenu

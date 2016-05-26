@@ -44,7 +44,6 @@ const getVisibleCharactersFilteredByKeyword = createSelector(
   )
 )
 
-
 const mapStateToProps = (state) => ({
   characters: getCharacters(state),
   visibilityFilter: getVisibilityFilter(state),

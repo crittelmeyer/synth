@@ -48,7 +48,7 @@ function * watchToggleMenu () {
 
 function * selectSubMenuItem (action) {
   if (action.payload) {
-    //hacky way to support external URLs for client-side web only
+    // hacky way to support external URLs for client-side web only
     if (action.payload.indexOf('http://') > -1) {
       yield put({ type: REDIRECT_EXTERNAL, payload: action.payload })
     } else {
@@ -67,7 +67,7 @@ function * selectSubMenuItem (action) {
 }
 
 function * watchSelectSubMenuItem () {
-  while(true) {
+  while (true) {
     const action = yield take(SELECT_SUB_MENU_ITEM)
     yield fork(selectSubMenuItem, action)
   }

@@ -17,7 +17,7 @@ import MainMenu from '../../components/MainMenu'
 import injectTapEventPlugin from 'react-tap-event-plugin'
 try {
   injectTapEventPlugin()
-} catch(e) {}
+} catch (e) {}
 
 type Props = {
   menuOpen: boolean,
@@ -79,15 +79,14 @@ const muiTheme = getMuiTheme({
   }
 })
 
-export const CoreLayout = (props: Props) => {
-  return (
+export const CoreLayout = (props: Props) => (
   <MuiThemeProvider muiTheme={muiTheme}>
     <div style={styles.mainContainer}>
       <Helmet
         htmlAttributes={{'lang': 'en'}}
-        title="Cultivāt"
-        titleTemplate="Cultivāt.com - %s"
-        defaultTitle="Cultivāt"
+        title='Cultivāt'
+        titleTemplate='Cultivāt.com - %s'
+        defaultTitle='Cultivāt'
         meta={[
           {'name': 'description', 'content': 'Cultivāt'},
           {'name': 'viewport', 'content': 'width=device-width, initial-scale=1'},
@@ -126,7 +125,7 @@ export const CoreLayout = (props: Props) => {
       </div>
     </div>
   </MuiThemeProvider>
-)}
+)
 
 CoreLayout.propTypes = {
   children: React.PropTypes.element.isRequired

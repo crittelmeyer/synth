@@ -1,6 +1,3 @@
-import { store } from 'store/createStore'
-import { push } from 'react-router-redux'
-
 // ------------------------------------
 // Constants
 // ------------------------------------

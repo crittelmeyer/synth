@@ -10,8 +10,8 @@ export const Header = (props: Props) => (
       <SearchHeader height={props.height} />
     </div>
     <UserHeader
-      avatar="http://lorempixel.com/100/100/nature/"
-      title="Julien @ Metro Atlanta Drones"
+      avatar='http://lorempixel.com/100/100/nature/'
+      title='Julien @ Metro Atlanta Drones'
       links={[
         { to: '/profile', text: 'Profile' },
         { to: '/settings', text: 'Settings' }

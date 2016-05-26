@@ -34,7 +34,7 @@ export const SearchHeader = (props: Props) => (
     <div style={globalStyles.flexFullWidth}>
       <TextField
         hintText="I'm looking for..."
-        fullWidth={true}
+        fullWidth
         style={styles.textField(props.height)}
       />
     </div>

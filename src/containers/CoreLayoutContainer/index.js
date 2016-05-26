@@ -1,5 +1,3 @@
-import CoreLayoutContainer from './CoreLayoutContainer'
-import reducer from './main-menu'
 import { injectReducer } from 'store/reducers'
 
 export default (store) => ({

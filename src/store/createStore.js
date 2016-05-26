@@ -5,7 +5,10 @@ import createSagaMiddleware from 'redux-saga'
 import makeRootReducer from './reducers'
 import { rootSaga } from 'sagas'
 
-export default (initialState: Object = {}, history: Object) => {
+// NOTE: there is currently a bug with babel-eslint where a `space-infix-ops`
+// error is incorrectly thrown when using arrow functions, hence the oddity.
+// see https://github.com/eslint/eslint/issues/5211 to track the issue
+export default function (initialState: Object = {}, history: Object) {
   // ======================================================
   // Middleware Configuration
   // ======================================================
