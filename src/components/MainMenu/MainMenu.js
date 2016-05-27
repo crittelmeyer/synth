@@ -1,14 +1,10 @@
 /* @flow */
 import React from 'react'
-import globalStyles from 'styles/js/global_styles'
+import { globalStyles, currentTheme } from 'styles/js/global_styles'
 import { Drawer } from 'material-ui'
-
-import ContentInbox from 'material-ui/svg-icons/content/inbox'
-import ActionGrade from 'material-ui/svg-icons/action/grade'
-import ContentSend from 'material-ui/svg-icons/content/send'
-import ContentDrafts from 'material-ui/svg-icons/content/drafts'
+import LogoImage from 'shared/images/tillur-logo.png'
+import MENU_ITEMS from './menu-items'
 import zIndex from 'material-ui/styles/zIndex'
-
 import MenuItem from './MenuItem'
 import SubMenu from './SubMenu'
 
@@ -29,76 +25,6 @@ type Props = {
   selectSubMenuItem: Function
 }
 
-const MENU_ITEMS = [
-  {
-    text: 'Overview',
-    icon: <ContentInbox />,
-    subMenuItems: [
-      {
-        text: 'Hey!',
-        href: '/'
-      },
-      {
-        text: 'Look at all',
-        href: '/'
-      },
-      {
-        text: 'these menu items!',
-        href: '/'
-      },
-      {
-        text: 'They do not',
-        href: '/'
-      },
-      {
-        text: 'actually go anywhere...',
-        href: '/'
-      },
-      {
-        text: '...',
-        href: '/'
-      },
-      {
-        text: 'but you get the idea!',
-        href: '/'
-      },
-      {
-        text: 'Actually this one goes to google',
-        href: 'http://www.google.com/'
-      }
-    ]
-  },
-  {
-    text: 'Material-UI',
-    icon: <ActionGrade />,
-    subMenuItems: [
-      {
-        text: 'Docs',
-        href: 'http://www.material-ui.com/'
-      },
-      {
-        text: 'Demo',
-        href: 'http://www.material-ui.com/#/components/app-bar'
-      }
-    ]
-  },
-  {
-    text: 'Fetch Data',
-    icon: <ContentDrafts />,
-    href: '/the-wire-characters'
-  },
-  {
-    text: 'Post Data',
-    icon: <ContentSend />,
-    href: '/add-the-wire-character'
-  },
-  {
-    text: 'React-Slick',
-    icon: <ContentDrafts />,
-    href: '/the-wire-gallery'
-  }
-]
-
 const styles = {
   menu: (sizes) => ({
     minHeight: (MENU_ITEMS.length * sizes.itemHeight) + globalStyles.DBL_STANDARD_SPACING + sizes.headerHeight,
@@ -106,6 +32,8 @@ const styles = {
     zIndex: zIndex.navDrawer + 2
   }),
   menuItem: (sizes) => ({
+    color: currentTheme.palette.alternateTextColor,
+    fontSize: 12,
     height: sizes.itemHeight
   }),
   subMenu: (left, sizes, open) => ({
@@ -117,6 +45,10 @@ const styles = {
   }),
   subMenuItem: {
     whiteSpace: 'nowrap'
+  },
+  logo: {
+    marginBottom: globalStyles.STANDARD_SPACING,
+    marginTop: globalStyles.STANDARD_SPACING
   }
 }
 
@@ -132,13 +64,12 @@ export const MainMenu = (props: Props) => (
         ...styles.menu(props.sizes)
       }}
     >
-      <img src={`http://lorempixel.com/${props.sizes.width}/${props.sizes.headerHeight}/technics`} />
+      <img src={LogoImage} style={styles.logo} />
 
       {MENU_ITEMS.map((item: Object, index: number) => (
         <MenuItem
           key={index}
           id={index}
-          width={props.sizes.width}
           style={styles.menuItem(props.sizes)}
           item={item}
           toggleMenu={props.toggleMenu}
@@ -159,7 +90,6 @@ export const MainMenu = (props: Props) => (
           }}
           subMenuItemStyle={styles.subMenuItem}
           open={props.open}
-          width={props.sizes.subMenuWidth}
         />
         : null
     ))}

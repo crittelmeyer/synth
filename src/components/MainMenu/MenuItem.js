@@ -6,7 +6,6 @@ export const SubMenu = React.createClass({
   propTypes: {
     id: React.PropTypes.number.isRequired,
     toggleMenu: React.PropTypes.func.isRequired,
-    width: React.PropTypes.number.isRequired,
     item: React.PropTypes.object.isRequired,
     style: React.PropTypes.object.isRequired
   },
@@ -19,7 +18,6 @@ export const SubMenu = React.createClass({
     return (
       <ListItem
         key={this.props.id}
-        width={this.props.width}
         style={this.props.style}
         primaryText={this.props.item.text}
         children={this.props.item.icon}

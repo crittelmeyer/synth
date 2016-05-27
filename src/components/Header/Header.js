@@ -2,7 +2,7 @@
 import React from 'react'
 import UserHeader from '../UserHeader'
 import SearchHeader from '../SearchHeader'
-import globalStyles from 'styles/js/global_styles'
+import { globalStyles } from 'styles/js/global_styles'
 
 export const Header = (props: Props) => (
   <div style={globalStyles.flexContainer}>

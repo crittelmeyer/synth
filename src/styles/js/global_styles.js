@@ -1,3 +1,5 @@
+import theme from './themes/tillurDefault'
+
 // standard padding/margin sizes
 // NOTE: since we are able to use the CSS calc() function, it's fairly common
 // to do something like calc(100% - leftPadding - rightPadding), which,
@@ -14,7 +16,7 @@ const BIG_FONT_SIZE = STANDARD_FONT_SIZE * 2
 const ICON_SIZE = 40
 const BIG_ICON_SIZE = 60
 
-export default {
+export const globalStyles = {
   STANDARD_SPACING,
   HALF_STANDARD_SPACING,
   DBL_STANDARD_SPACING,
@@ -28,3 +30,7 @@ export default {
   flexContainer: { display: 'flex' },
   flexFullWidth: { flex: '1' }
 }
+
+export var currentTheme = theme
+
+export default { globalStyles, currentTheme }

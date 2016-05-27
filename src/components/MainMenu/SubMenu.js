@@ -14,8 +14,7 @@ export const SubMenu = React.createClass({
       React.PropTypes.bool,
       React.PropTypes.number
     ]).isRequired,
-    item: React.PropTypes.object.isRequired,
-    width: React.PropTypes.number.isRequired
+    item: React.PropTypes.object.isRequired
   },
 
   _toggleMenu () {
@@ -29,7 +28,6 @@ export const SubMenu = React.createClass({
         containerStyle={this.props.style}
         onRequestChange={this._toggleMenu}
         open={this.props.open === this.props.id}
-        width={this.props.width}
         docked={false}
       >
         {this.props.item.subMenuItems.map((subMenuItem: Object, subIndex: number) => (

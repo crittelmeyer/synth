@@ -1,6 +1,6 @@
 /* @flow */
 import React from 'react'
-import globalStyles from 'styles/js/global_styles'
+import { globalStyles } from 'styles/js/global_styles'
 
 import { grey400 } from 'material-ui/styles/colors'
 

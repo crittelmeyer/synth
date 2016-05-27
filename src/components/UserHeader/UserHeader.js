@@ -1,7 +1,7 @@
 /* @flow */
 import React from 'react'
 import { Link } from 'react-router'
-import globalStyles from 'styles/js/global_styles'
+import { globalStyles } from 'styles/js/global_styles'
 import { Avatar } from 'material-ui'
 
 type UserHeaderLink = {
