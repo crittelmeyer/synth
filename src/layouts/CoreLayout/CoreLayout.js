@@ -16,7 +16,7 @@ import MainMenu from '../../components/MainMenu'
 import injectTapEventPlugin from 'react-tap-event-plugin'
 try {
   injectTapEventPlugin()
-} catch (e) {}
+} catch (e) {} // eslint-disable-line no-empty
 
 type Props = {
   menuOpen: boolean,

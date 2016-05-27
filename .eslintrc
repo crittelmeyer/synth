@@ -1,16 +1,18 @@
 {
-  "parser"  : "babel-eslint",
-  "extends" : [
+  "parser": "babel-eslint",
+  "extends": [
     "standard",
-    "standard-react"
+    "eslint:recommended",
+    "plugin:react/recommended"
   ],
   "plugins": [
-    "flow-vars"
+    "flow-vars",
+    "react"
   ],
-  "env"     : {
+  "env": {
     "browser" : true
   },
-  "globals" : {
+  "globals": {
     "__DEV__"      : false,
     "__PROD__"     : false,
     "__DEBUG__"    : false,

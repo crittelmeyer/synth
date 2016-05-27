@@ -1,5 +1,14 @@
+checkout:
+  post:
+    - git submodule sync
+    - git submodule update --init # use submodules
+
+dependencies:
+  pre:
+    - npm install -g flow-bin
+
 test:
   override:
     - npm test
-    - npm run flow:check
+    - flow
     - npm run lint

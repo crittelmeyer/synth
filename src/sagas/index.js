@@ -1,3 +1,4 @@
+/* eslint-disable no-constant-condition */
 /* @flow */
 import axios from 'axios'
 import { takeEvery } from 'redux-saga'
