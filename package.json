@@ -1,7 +1,7 @@
 {
   "name": "web-tech-stack-poc",
   "version": "0.0.1",
-  "description": "Cultivat Web Tech Stack POC",
+  "description": "Tillur Web Tech Stack POC",
   "main": "index.js",
   "engines": {
     "node": ">=4.2.0",
