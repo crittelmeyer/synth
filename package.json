@@ -1,6 +1,6 @@
 {
   "name": "web-tech-stack-poc",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "description": "Tillur Web Tech Stack POC",
   "main": "index.js",
   "engines": {
@@ -8,6 +8,9 @@
     "npm": "^3.0.0"
   },
   "scripts": {
+    "preversion": "./bin/check-repo.sh && npm run test && npm run lint && npm run flow:check",
+    "version": "npm run deploy && git add -A -f dist",
+    "postversion": "git push && git push --tags",
     "clean": "rimraf dist",
     "compile": "better-npm-run compile",
     "lint": "eslint src tests server",
