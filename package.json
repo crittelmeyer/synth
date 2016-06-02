@@ -78,9 +78,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cultivat/web-tech-stack-poc.git"
+    "url": "git+https://github.com/tillur/web-tech-stack-poc.git"
   },
-  "author": "Chris Rittelmeyer <chris@cultivat.com> (http://cultivat.com/)",
+  "author": "Chris Rittelmeyer <chris@tillur.com> (http://tillur.com/)",
   "license": "MIT",
   "dependencies": {
     "axios": "^0.11.1",
