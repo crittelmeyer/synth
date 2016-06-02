@@ -171,5 +171,8 @@
     "sinon-chai": "^2.8.0",
     "webpack-dev-middleware": "^1.6.1",
     "webpack-hot-middleware": "^2.6.0"
+  },
+  "publishConfig": {
+    "registry": "https://tillur.jfrog.io/tillur/api/npm/npm-local"
   }
 }
