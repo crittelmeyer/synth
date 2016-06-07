@@ -1,26 +1,24 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
 import { Router } from 'react-router'
 import { Provider } from 'react-redux'
 
-class AppContainer extends React.Component {
-  static propTypes = {
-    history: PropTypes.object.isRequired,
-    routes: PropTypes.object.isRequired,
-    routerKey: PropTypes.number,
-    store: PropTypes.object.isRequired
-  }
-
-  render () {
-    const { history, routes, routerKey, store } = this.props
-
-    return (
-      <Provider store={store}>
-        <div style={{ height: '100%' }}>
-          <Router history={history} children={routes} key={routerKey} />
-        </div>
-      </Provider>
-    )
-  }
+type Props = {
+  history: Object,
+  routes: Object,
+  routerKey: Number,
+  store: Object
 }
+
+const AppContainer = (props: Props) => (
+  <Provider store={props.store}>
+    <div style={{ height: '100%' }}>
+      <Router
+        history={props.history}
+        children={props.routes}
+        key={props.routerKey}
+      />
+    </div>
+  </Provider>
+)
 
 export default AppContainer

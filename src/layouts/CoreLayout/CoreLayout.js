@@ -70,21 +70,21 @@ export const CoreLayout = (props: Props) => (
   <MuiThemeProvider muiTheme={muiTheme}>
     <div style={styles.mainContainer}>
       <Helmet
-        htmlAttributes={{'lang': 'en'}}
-        title='Tillur'
-        titleTemplate='Tillur.com - %s'
-        defaultTitle='Tillur'
+        htmlAttributes={{ lang: 'en' }}
+        title="Tillur"
+        titleTemplate="Tillur.com - %s"
+        defaultTitle="Tillur"
         meta={[
-          {'name': 'description', 'content': 'Tillur'},
-          {'name': 'viewport', 'content': 'width=device-width, initial-scale=1'},
-          {'charset': 'utf-8'}
+          { name: 'description', content: 'Tillur' },
+          { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+          { charset: 'utf-8' }
         ]}
         link={[
-          {'rel': 'canonical', 'href': 'http://tillur.com/example'},
-          {'rel': 'apple-touch-icon', 'href': 'http://tillur.com/img/apple-touch-icon-57x57.png'},
-          {'rel': 'apple-touch-icon', 'sizes': '72x72', 'href': 'http://tillur.com/img/apple-touch-icon-72x72.png'},
-          {'rel': 'stylesheet', 'href': 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'},
-          {'rel': 'stylesheet', 'href': 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.3.15/slick.css'}
+          { rel: 'canonical', href: 'http://tillur.com/example' },
+          { rel: 'apple-touch-icon', href: 'http://tillur.com/img/apple-touch-icon-57x57.png' },
+          { rel: 'apple-touch-icon', sizes: '72x72', href: 'http://tillur.com/img/apple-touch-icon-72x72.png' },
+          { rel: 'stylesheet', href: 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css' },
+          { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.3.15/slick.css' }
         ]}
       />
       <MainMenu

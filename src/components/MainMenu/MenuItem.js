@@ -2,29 +2,34 @@
 import React from 'react'
 import { ListItem } from 'material-ui'
 
-export const SubMenu = React.createClass({
-  propTypes: {
-    id: React.PropTypes.number.isRequired,
-    toggleMenu: React.PropTypes.func.isRequired,
-    item: React.PropTypes.object.isRequired,
-    style: React.PropTypes.object.isRequired
-  },
+type Props = {
+  toggleMenu: Function,
+  item: Object,
+  style: Object
+}
 
-  _toggleMenu () {
-    this.props.toggleMenu({ ...this.props.item, id: this.props.id })
-  },
+export class MenuItem extends React.Component {
+  constructor(props: Props) {
+    super(props)
+    this.toggleMenu = this.toggleMenu.bind(this)
+  }
+
+  toggleMenu: () => void;
+  toggleMenu () {
+    this.props.toggleMenu(this.props.item)
+  }
 
   render () {
     return (
       <ListItem
-        key={this.props.id}
+        key={this.props.item.id}
         style={this.props.style}
         primaryText={this.props.item.text}
         children={this.props.item.icon}
-        onTouchTap={this._toggleMenu}
+        onTouchTap={this.toggleMenu}
       />
     )
   }
-})
+}
 
-export default SubMenu
+export default MenuItem
