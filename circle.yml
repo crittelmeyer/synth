@@ -12,3 +12,9 @@ test:
     - npm test
     - flow
     - npm run lint
+
+deployment:
+  staging:
+    branch: staging
+    commands:
+      - ./bin/deploy-to-staging.sh
