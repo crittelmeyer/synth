@@ -17,4 +17,4 @@ deployment:
   staging:
     branch: staging
     commands:
-      - ./bin/deploy-to-staging.sh
+      - chmod +x bin/deploy-to-staging.sh; ./bin/deploy-to-staging.sh

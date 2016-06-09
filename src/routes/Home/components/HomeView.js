@@ -3,7 +3,7 @@ import React from 'react'
 
 export const HomeView = () => (
   <div>
-    <h1>Cultivāt Tech Stack</h1>
+    <h1>Tillur Tech Stack</h1>
     <p>
       Hello, and welcome to the tech stack for Cultivāt. This will serve as
       an introduction, general reference & POC for the Cultivāt tech stack.
