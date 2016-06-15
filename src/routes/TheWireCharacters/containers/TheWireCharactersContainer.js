@@ -23,15 +23,15 @@ const getVisibleCharacters = createSelector(
       case 'SHOW_ALL':
         return characters
       case 'SHOW_SEASON_1':
-        return characters.filter(c => c.seasons.indexOf(1) > -1)
+        return characters.filter((c) => c.seasons.indexOf(1) > -1)
       case 'SHOW_SEASON_2':
-        return characters.filter(c => c.seasons.indexOf(2) > -1)
+        return characters.filter((c) => c.seasons.indexOf(2) > -1)
       case 'SHOW_SEASON_3':
-        return characters.filter(c => c.seasons.indexOf(3) > -1)
+        return characters.filter((c) => c.seasons.indexOf(3) > -1)
       case 'SHOW_SEASON_4':
-        return characters.filter(c => c.seasons.indexOf(4) > -1)
+        return characters.filter((c) => c.seasons.indexOf(4) > -1)
       case 'SHOW_SEASON_5':
-        return characters.filter(c => c.seasons.indexOf(5) > -1)
+        return characters.filter((c) => c.seasons.indexOf(5) > -1)
       default:
         return characters
     }
@@ -40,7 +40,7 @@ const getVisibleCharacters = createSelector(
 const getVisibleCharactersFilteredByKeyword = createSelector(
   [getVisibleCharacters, getKeyword],
   (visibleCharacters, keyword) => visibleCharacters.filter(
-    character => keyword === '' || character.firstName.toLowerCase().indexOf(keyword.toLowerCase()) > -1
+    (character) => keyword === '' || character.firstName.toLowerCase().indexOf(keyword.toLowerCase()) > -1
   )
 )
 

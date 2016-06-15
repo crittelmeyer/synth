@@ -64,34 +64,32 @@ export const MainMenu = (props: Props) => (
         ...styles.menu(props.sizes)
       }}
     >
-      <img src={LogoImage} style={styles.logo} />
+      <img alt="Tillur logo" src={LogoImage} style={styles.logo} />
 
-      {MENU_ITEMS.map((item: Object, index: number) => (
+      {MENU_ITEMS.map((item: Object) => (
         <MenuItem
-          key={index}
-          id={index}
+          key={item.id}
           style={styles.menuItem(props.sizes)}
           item={item}
           toggleMenu={props.toggleMenu}
         />
       ))}
     </Drawer>
-    {MENU_ITEMS.map((item: Object, index: number) => (
+    {MENU_ITEMS.map((item: Object) => (
       item.subMenuItems && item.subMenuItems.length > 0
-        ? <SubMenu
-          key={index}
-          id={index}
+      ? <SubMenu
+          key={item.id}
           item={item}
           toggleMenu={props.toggleMenu}
           selectSubMenuItem={props.selectSubMenuItem}
           style={{
             ...props.style,
-            ...styles.subMenu(props.contentLeft, props.sizes, props.open === index)
+            ...styles.subMenu(props.contentLeft, props.sizes, props.open === item.id)
           }}
           subMenuItemStyle={styles.subMenuItem}
           open={props.open}
         />
-        : null
+      : null
     ))}
   </div>
 )

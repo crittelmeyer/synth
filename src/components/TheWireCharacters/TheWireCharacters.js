@@ -22,6 +22,7 @@ const styles = {
 }
 
 type Character = {
+  id: string,
   firstName: string,
   lastName: string,
   actorFirstName: string,
@@ -29,30 +30,39 @@ type Character = {
   seasons: Array<number>
 }
 
-export const TheWireCharacters = React.createClass({
-  propTypes: {
-    fetchCharacters: React.PropTypes.func.isRequired,
-    searchCharacters: React.PropTypes.func.isRequired,
-    filterCharacters: React.PropTypes.func.isRequired,
-    errorMsg: React.PropTypes.string,
-    keyword: React.PropTypes.string.isRequired,
-    visibilityFilter: React.PropTypes.string.isRequired,
-    characters: React.PropTypes.array.isRequired,
-    visibleCharacters: React.PropTypes.array.isRequired,
-    visibleCharactersFiltered: React.PropTypes.array.isRequired
-  },
+
+type Props = {
+  fetchCharacters: Function,
+  searchCharacters: Function,
+  filterCharacters: Function,
+  errorMsg: String,
+  keyword: String,
+  visibilityFilter: String,
+  characters: Array<Character>,
+  visibleCharacters: Array<Character>,
+  visibleCharactersFiltered: Array<Character>
+}
+
+export class TheWireCharacters extends React.Component {
+  constructor(props: Props) {
+    super(props)
+    this.filterCharacters = this.filterCharacters.bind(this)
+    this.searchCharacters = this.searchCharacters.bind(this)
+  }
 
   componentDidMount () {
     this.props.fetchCharacters()
-  },
+  }
 
-  _filterCharacters (event: Event, index: number, value: string) {
+  filterCharacters: () => void;
+  filterCharacters (event: Event, index: number, value: string) {
     this.props.filterCharacters(value)
-  },
+  }
 
-  _searchCharacters (event: Event, value: string) {
+  searchCharacters: () => void;
+  searchCharacters (event: Event, value: string) {
     this.props.searchCharacters(value)
-  },
+  }
 
   render () {
     return this.props.errorMsg
@@ -62,32 +72,32 @@ export const TheWireCharacters = React.createClass({
         <Paper zDepth={2}>
           <Toolbar style={styles.toolbar}>
             <ToolbarGroup>
-              <ToolbarTitle text='Search' />
+              <ToolbarTitle text="Search" />
               <DropDownMenu
                 style={styles.dropdown}
                 value={this.props.visibilityFilter}
-                onChange={this._filterCharacters}
+                onChange={this.filterCharacters}
               >
-                <MenuItem value='SHOW_ALL' primaryText='All Seasons' />
-                <MenuItem value='SHOW_SEASON_1' primaryText='Season 1' />
-                <MenuItem value='SHOW_SEASON_2' primaryText='Season 2' />
-                <MenuItem value='SHOW_SEASON_3' primaryText='Season 3' />
-                <MenuItem value='SHOW_SEASON_4' primaryText='Season 4' />
-                <MenuItem value='SHOW_SEASON_5' primaryText='Season 5' />
+                <MenuItem value="SHOW_ALL" primaryText="All Seasons" />
+                <MenuItem value="SHOW_SEASON_1" primaryText="Season 1" />
+                <MenuItem value="SHOW_SEASON_2" primaryText="Season 2" />
+                <MenuItem value="SHOW_SEASON_3" primaryText="Season 3" />
+                <MenuItem value="SHOW_SEASON_4" primaryText="Season 4" />
+                <MenuItem value="SHOW_SEASON_5" primaryText="Season 5" />
               </DropDownMenu>
-              <ToolbarTitle text='of The Wire for' />
+              <ToolbarTitle text="of The Wire for" />
               <TextField
-                name='keyword'
+                name="keyword"
                 style={styles.search}
                 value={this.props.keyword}
-                onChange={this._searchCharacters}
+                onChange={this.searchCharacters}
               />
             </ToolbarGroup>
           </Toolbar>
         </Paper>
 
         <Paper zDepth={2}>
-          <Table height='100%' fixedHeader fixedFooter selectable multiSelectable>
+          <Table height="100%" fixedHeader fixedFooter selectable multiSelectable>
             <TableHeader displaySelectAll adjustForCheckbox enableSelectAll={false}>
               <TableRow>
                 <TableHeaderColumn>ID</TableHeaderColumn>
@@ -97,7 +107,7 @@ export const TheWireCharacters = React.createClass({
             </TableHeader>
             <TableBody displayRowCheckbox deselectOnClickaway showRowHover={false} stripedRows={false}>
               {this.props.visibleCharactersFiltered.map((row: Character, index: number) => (
-                <TableRow key={index}>
+                <TableRow key={row.id}>
                   <TableRowColumn>{index}</TableRowColumn>
                   <TableRowColumn>{`${row.firstName} ${row.lastName}`}</TableRowColumn>
                   <TableRowColumn>{`${row.actorFirstName} ${row.actorLastName}`}</TableRowColumn>
@@ -109,6 +119,6 @@ export const TheWireCharacters = React.createClass({
       </div>
     )
   }
-})
+}
 
 export default TheWireCharacters

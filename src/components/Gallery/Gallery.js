@@ -17,12 +17,12 @@ export const MainMenu = (props: Props) => {
   }
   return (
     <Slider {...settings}>
-      <div><img src='http://lorempixel.com/300/300/technics' /></div>
-      <div><img src='http://lorempixel.com/300/300/animals' /></div>
-      <div><img src='http://lorempixel.com/300/300/sports' /></div>
-      <div><img src='http://lorempixel.com/300/300/food' /></div>
-      <div><img src='http://lorempixel.com/300/300/fashion' /></div>
-      <div><img src='http://lorempixel.com/300/300/business' /></div>
+      <div><img src="http://lorempixel.com/300/300/technics" alt="Slide 1" /></div>
+      <div><img src="http://lorempixel.com/300/300/animals" alt="Slide 2" /></div>
+      <div><img src="http://lorempixel.com/300/300/sports" alt="Slide 3" /></div>
+      <div><img src="http://lorempixel.com/300/300/food" alt="Slide 4" /></div>
+      <div><img src="http://lorempixel.com/300/300/fashion" alt="Slide 5" /></div>
+      <div><img src="http://lorempixel.com/300/300/business" alt="Slide 6" /></div>
     </Slider>
   )
 }

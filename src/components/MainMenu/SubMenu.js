@@ -3,37 +3,38 @@ import React from 'react'
 import { Drawer } from 'material-ui'
 import SubMenuItem from './SubMenuItem'
 
-export const SubMenu = React.createClass({
-  propTypes: {
-    id: React.PropTypes.number.isRequired,
-    toggleMenu: React.PropTypes.func.isRequired,
-    selectSubMenuItem: React.PropTypes.func.isRequired,
-    style: React.PropTypes.object.isRequired,
-    subMenuItemStyle: React.PropTypes.object.isRequired,
-    open: React.PropTypes.oneOfType([
-      React.PropTypes.bool,
-      React.PropTypes.number
-    ]).isRequired,
-    item: React.PropTypes.object.isRequired
-  },
+type Props = {
+  toggleMenu: Function,
+  selectSubMenuItem: Function,
+  style: Object,
+  subMenuItemStyle: Object,
+  open: Boolean | Number,
+  item: Object
+}
 
-  _toggleMenu () {
-    this.props.toggleMenu({ ...this.props.item, id: this.props.id })
-  },
+export class SubMenu extends React.Component {
+  constructor(props: Props) {
+    super(props)
+    this.toggleMenu = this.toggleMenu.bind(this)
+  }
+
+  toggleMenu: () => void;
+  toggleMenu () {
+    this.props.toggleMenu(this.props.item)
+  }
 
   render () {
     return (
       <Drawer
-        key={this.props.id}
+        key={this.props.item.id}
         containerStyle={this.props.style}
-        onRequestChange={this._toggleMenu}
-        open={this.props.open === this.props.id}
+        onRequestChange={this.toggleMenu}
+        open={this.props.open === this.props.item.id}
         docked={false}
       >
-        {this.props.item.subMenuItems.map((subMenuItem: Object, subIndex: number) => (
+        {this.props.item.subMenuItems.map((subMenuItem: Object) => (
           <SubMenuItem
-            id={subIndex}
-            key={subIndex}
+            key={subMenuItem.id}
             item={subMenuItem}
             selectSubMenuItem={this.props.selectSubMenuItem}
             style={this.props.subMenuItemStyle}
@@ -42,6 +43,6 @@ export const SubMenu = React.createClass({
       </Drawer>
     )
   }
-})
+}
 
 export default SubMenu

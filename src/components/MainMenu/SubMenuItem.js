@@ -2,29 +2,34 @@
 import React from 'react'
 import { ListItem } from 'material-ui'
 
-export const SubMenu = React.createClass({
-  propTypes: {
-    id: React.PropTypes.number.isRequired,
-    item: React.PropTypes.object.isRequired,
-    selectSubMenuItem: React.PropTypes.func.isRequired,
-    style: React.PropTypes.object.isRequired
-  },
+type Props = {
+  item: Object,
+  selectSubMenuItem: Function,
+  style: Object
+}
 
-  _selectSubMenuItem () {
-    this.props.selectSubMenuItem({ ...this.props.item, id: this.props.id })
-  },
+export class SubMenuItem extends React.Component {
+  constructor(props: Props) {
+    super(props)
+    this.selectSubMenuItem = this.selectSubMenuItem.bind(this)
+  }
+
+  selectSubMenuItem: () => void;
+  selectSubMenuItem () {
+    this.props.selectSubMenuItem(this.props.item)
+  }
 
   render () {
     return (
       <ListItem
-        key={this.props.id}
-        onTouchTap={this._selectSubMenuItem}
+        key={this.props.item.id}
+        onTouchTap={this.selectSubMenuItem}
         style={this.props.style}
       >
         {this.props.item.text}
       </ListItem>
     )
   }
-})
+}
 
-export default SubMenu
+export default SubMenuItem

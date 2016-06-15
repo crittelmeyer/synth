@@ -31,6 +31,6 @@ export const globalStyles = {
   flexFullWidth: { flex: '1' }
 }
 
-export var currentTheme = theme
+export const currentTheme = theme
 
 export default { globalStyles, currentTheme }
