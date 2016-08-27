@@ -65,13 +65,16 @@ const io = new IO()
 io.attach(app)
 
 io.on('connection', (ctx, data) => {
+  console.log('Socket connected: ' + ctx.socket.id);
+
   ctx.socket.emit('ping', { msg: 'Hello. I know socket.io.' });
   setTimeout(() => { ctx.socket.emit('ping', { msg: 'Hello. I know socket.io too!' }) }, 3000)
 
-  // Print messages from the client.
-  ctx.socket.on('pong', (data) => {
-    console.log('hey');
-    console.log(data.msg);
+  ctx.socket.on('action', (action) => {
+    if (action.type === 'server/FETCH_BOARD') {
+      // console.log('Got hello data!', action.data);
+      ctx.socket.emit('action', { type: 'FETCH_BOARD_SUCCEEDED', payload: { board: { name: 'test' } }});
+    }
   });
 })
 

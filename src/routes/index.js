@@ -7,7 +7,7 @@ import TheWireCharacters from './TheWireCharacters'
 export const createRoutes = (store: Object) => ({
   path: '/',
   ...CoreLayout(store),
-  indexRoute: Home,
+  indexRoute: Home(store),
   childRoutes: [
     TheWireCharacters(store)
   ]

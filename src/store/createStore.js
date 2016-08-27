@@ -1,4 +1,6 @@
 import { applyMiddleware, compose, createStore } from 'redux'
+import createSocketIoMiddleware from 'redux-socket.io'
+import io from 'socket.io-client'
 import { routerMiddleware } from 'react-router-redux'
 import handleTransitions from 'redux-history-transitions'
 // import createSagaMiddleware from 'redux-saga'
@@ -12,10 +14,17 @@ export default function (initialState: Object = {}, history: Object) {
   // ======================================================
   // Middleware Configuration
   // ======================================================
+  //
+  // // create redux-saga middleware
   // const sagaMiddleware = createSagaMiddleware()
+
+  // create redux-socket.io middleware
+  let socket = io('http://localhost:3000');
+  let socketIoMiddleware = createSocketIoMiddleware(socket, "server/");
 
   const middleware = [
     // sagaMiddleware,
+    socketIoMiddleware,
     routerMiddleware(history)
   ]
 
