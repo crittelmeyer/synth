@@ -1,7 +1,7 @@
 {
-  "name": "web-tech-stack-poc",
+  "name": "hive",
   "version": "0.0.1",
-  "description": "Tillur Web Tech Stack POC",
+  "description": "Hive",
   "main": "index.js",
   "engines": {
     "node": ">=4.2.0",
@@ -78,9 +78,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tillur/web-tech-stack-poc.git"
+    "url": "git+https://github.com/crittelmeyer/hive.git"
   },
-  "author": "Chris Rittelmeyer <chris@tillur.com> (http://tillur.com/)",
+  "author": "Chris Rittelmeyer <chrisrittelmeyer@gmail.com> (http://hive.com/)",
   "license": "MIT",
   "dependencies": {
     "axios": "^0.11.1",
@@ -113,6 +113,7 @@
     "koa-connect-history-api-fallback": "^0.3.0",
     "koa-convert": "^1.2.0",
     "koa-proxy": "^0.6.0",
+    "koa-socket": "^4.4.0",
     "koa-static": "^2.0.0",
     "material-ui": "^0.15.0",
     "node-sass": "^3.7.0",
@@ -173,8 +174,5 @@
     "sinon-chai": "^2.8.0",
     "webpack-dev-middleware": "^1.6.1",
     "webpack-hot-middleware": "^2.6.0"
-  },
-  "publishConfig": {
-    "registry": "https://tillur.jfrog.io/tillur/api/npm/npm-local"
   }
 }

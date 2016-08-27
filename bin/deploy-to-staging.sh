@@ -15,10 +15,10 @@ new_pkg_name="${pkg_name_no_ext}_${current_date}.${pkg_ext}"
 mv "$pkg_name" "$new_pkg_name"
 
 # copy package to staging server
-scp "$new_pkg_name" root@staging.tillur.io:/root/tillur
+scp "$new_pkg_name" root@staging.hive.io:/root/hive
 
 # copy "deploy" script to staging server
-scp bin/deploy.sh root@staging.tillur.io:/root/tillur
+scp bin/deploy.sh root@staging.hive.io:/root/hive
 
 # run remote "deploy" script
-ssh root@staging.tillur.io "cd /root/tillur; chmod +x deploy.sh; ./deploy.sh ${new_pkg_name}"
+ssh root@staging.hive.io "cd /root/hive; chmod +x deploy.sh; ./deploy.sh ${new_pkg_name}"

@@ -1,9 +1,9 @@
 import { applyMiddleware, compose, createStore } from 'redux'
 import { routerMiddleware } from 'react-router-redux'
 import handleTransitions from 'redux-history-transitions'
-import createSagaMiddleware from 'redux-saga'
+// import createSagaMiddleware from 'redux-saga'
 import makeRootReducer from './reducers'
-import { rootSaga } from 'sagas'
+// import { rootSaga } from 'sagas'
 
 // NOTE: there is currently a bug with babel-eslint where a `space-infix-ops`
 // error is incorrectly thrown when using arrow functions, hence the oddity.
@@ -12,10 +12,10 @@ export default function (initialState: Object = {}, history: Object) {
   // ======================================================
   // Middleware Configuration
   // ======================================================
-  const sagaMiddleware = createSagaMiddleware()
+  // const sagaMiddleware = createSagaMiddleware()
 
   const middleware = [
-    sagaMiddleware,
+    // sagaMiddleware,
     routerMiddleware(history)
   ]
 
@@ -44,7 +44,7 @@ export default function (initialState: Object = {}, history: Object) {
   )
   store.asyncReducers = {}
 
-  sagaMiddleware.run(rootSaga)
+  // sagaMiddleware.run(rootSaga)
 
   if (module.hot) {
     module.hot.accept('./reducers', () => {

@@ -10,10 +10,10 @@ export default (store) => ({
       /*  Webpack - use require callback to define
           dependencies for bundling   */
       const CoreLayout = require('./CoreLayoutContainer').default
-      const reducer = require('./main-menu').default
+      // const reducer = require('./main-menu').default
 
       /*  Add the reducer to the store on key 'theWireCharacters'  */
-      injectReducer(store, { key: 'mainMenu', reducer })
+      // injectReducer(store, { key: 'mainMenu', reducer })
 
       /*  Return getComponent   */
       cb(null, CoreLayout)

@@ -9,6 +9,7 @@ import _debug from 'debug'
 import config from '../config'
 import webpackDevMiddleware from './middleware/webpack-dev'
 import webpackHMRMiddleware from './middleware/webpack-hmr'
+import IO from 'koa-socket'
 
 const debug = _debug('app:server')
 const paths = config.utils_paths
@@ -57,5 +58,21 @@ if (config.env === 'development') {
   // server in production.
   app.use(convert(serve(paths.dist())))
 }
+
+
+const io = new IO()
+
+io.attach(app)
+
+io.on('connection', (ctx, data) => {
+  ctx.socket.emit('ping', { msg: 'Hello. I know socket.io.' });
+  setTimeout(() => { ctx.socket.emit('ping', { msg: 'Hello. I know socket.io too!' }) }, 3000)
+
+  // Print messages from the client.
+  ctx.socket.on('pong', (data) => {
+    console.log('hey');
+    console.log(data.msg);
+  });
+})
 
 export default app
