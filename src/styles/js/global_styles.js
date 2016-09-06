@@ -1,4 +1,4 @@
-import theme from './themes/hiveDefault'
+import theme from './themes/beatboxDefault'
 
 // standard padding/margin sizes
 // NOTE: since we are able to use the CSS calc() function, it's fairly common

@@ -10,10 +10,14 @@ import config from '../config'
 import webpackDevMiddleware from './middleware/webpack-dev'
 import webpackHMRMiddleware from './middleware/webpack-hmr'
 import IO from 'koa-socket'
+import cors from 'kcors'
 
 const debug = _debug('app:server')
 const paths = config.utils_paths
 const app = new Koa()
+
+// relax cors restrictions for storybook
+app.use(cors())
 
 // Enable koa-proxy if it has been enabled in the config.
 if (config.proxy && config.proxy.enabled) {

@@ -1,7 +1,7 @@
 /* @flow */
 import React from 'react'
 import getMuiTheme from 'material-ui/styles/getMuiTheme'
-import baseTheme from 'styles/js/themes/hiveDefault'
+import baseTheme from 'styles/js/themes/beatboxDefault'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import { globalStyles } from 'styles/js/global_styles'
 import Helmet from 'react-helmet'
@@ -32,18 +32,18 @@ export const CoreLayout = (props: Props) => (
     <div style={styles.mainContainer}>
       <Helmet
         htmlAttributes={{ lang: 'en' }}
-        title="Hive"
-        titleTemplate="Hive - %s"
-        defaultTitle="Hive"
+        title="beatbox"
+        titleTemplate="beatbox - %s"
+        defaultTitle="beatbox"
         meta={[
-          { name: 'description', content: 'Hive' },
+          { name: 'description', content: 'beatbox' },
           { name: 'viewport', content: 'width=device-width, initial-scale=1' },
           { charset: 'utf-8' }
         ]}
         link={[
-          { rel: 'canonical', href: 'http://hive.com/example' },
-          { rel: 'apple-touch-icon', href: 'http://hive.com/img/apple-touch-icon-57x57.png' },
-          { rel: 'apple-touch-icon', sizes: '72x72', href: 'http://hive.com/img/apple-touch-icon-72x72.png' },
+          { rel: 'canonical', href: 'http://beatbox.com/example' },
+          { rel: 'apple-touch-icon', href: 'http://beatbox.com/img/apple-touch-icon-57x57.png' },
+          { rel: 'apple-touch-icon', sizes: '72x72', href: 'http://beatbox.com/img/apple-touch-icon-72x72.png' },
           { rel: 'stylesheet', href: 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css' },
         ]}
       />

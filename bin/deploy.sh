@@ -3,8 +3,8 @@
 # store first arg as filename
 filename=$1
 
-# kill current hive processes
-ps aux | grep hive | grep -v grep | awk '{print $2}' | xargs kill -9
+# kill current beatbox processes
+ps aux | grep beatbox | grep -v grep | awk '{print $2}' | xargs kill -9
 
 # delete old package
 rm -rf package

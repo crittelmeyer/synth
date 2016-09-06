@@ -2,7 +2,7 @@ import baseTheme from 'material-ui/styles/baseThemes/lightBaseTheme'
 import { fade } from 'material-ui/utils/colorManipulator'
 
 // NOTE: originally this was in shared/themes/default which was part of the "shared" submodule repo
-const hiveTheme = {
+const beatboxTheme = {
   zDepthShadows: [
     [1, 6, 0.12, 1, 4, 0.12],
     [13, 13, 0.16, 13, 13, 0.23],
@@ -22,9 +22,9 @@ const hiveTheme = {
 
 export const theme = {
   ...baseTheme,
-  ...hiveTheme,
+  ...beatboxTheme,
   paper: {
-    zDepthShadows: hiveTheme.zDepthShadows.map((d) => (
+    zDepthShadows: beatboxTheme.zDepthShadows.map((d) => (
       `0 ${d[0]}px ${d[1]}px -10px ${fade(baseTheme.palette.shadowColor, d[2])},
        0 ${d[3]}px ${d[4]}px -10px ${fade(baseTheme.palette.shadowColor, d[5])}`
     ))

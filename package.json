@@ -1,7 +1,7 @@
 {
-  "name": "hive",
+  "name": "beatbox",
   "version": "0.0.1",
-  "description": "Hive",
+  "description": "beatbox",
   "main": "index.js",
   "engines": {
     "node": ">=4.2.0",
@@ -26,7 +26,9 @@
     "flow:check": "babel-node bin/flow-check",
     "codecov": "cat coverage/*/lcov.info | codecov",
     "publish-please": "publish-please",
-    "prepublish": "publish-please guard"
+    "prepublish": "publish-please guard",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "betterScripts": {
     "compile": {
@@ -78,9 +80,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/crittelmeyer/hive.git"
+    "url": "git+https://github.com/crittelmeyer/beatbox.git"
   },
-  "author": "Chris Rittelmeyer <chrisrittelmeyer@gmail.com> (http://hive.com/)",
+  "author": "Chris Rittelmeyer <chrisrittelmeyer@gmail.com> (http://beatbox.com/)",
   "license": "MIT",
   "dependencies": {
     "axios": "^0.11.1",
@@ -109,6 +111,7 @@
     "imports-loader": "^0.6.5",
     "ip": "^1.1.2",
     "json-loader": "^0.5.4",
+    "kcors": "^1.2.1",
     "koa": "^2.0.0-alpha.3",
     "koa-connect-history-api-fallback": "^0.3.0",
     "koa-convert": "^1.2.0",
@@ -117,17 +120,20 @@
     "koa-static": "^2.0.0",
     "material-ui": "^0.15.0",
     "node-sass": "^3.7.0",
+    "node-uuid": "^1.4.7",
     "normalize.css": "^4.1.1",
     "postcss-loader": "^0.9.0",
-    "radium": "^0.17.1",
+    "radium": "^0.18.1",
     "react": "^15.0.0",
     "react-dom": "^15.0.0",
     "react-helmet": "^3.1.0",
+    "react-music": "^1.0.1",
     "react-redux": "^4.0.0",
     "react-router": "^2.2.0",
     "react-router-redux": "^4.0.0",
     "react-slick": "^0.12.2",
     "react-tap-event-plugin": "^1.0.0",
+    "react-tappable": "^0.8.4",
     "recompose": "^0.20.2",
     "redux": "^3.0.0",
     "redux-history-transitions": "^2.2.0",
@@ -175,6 +181,7 @@
     "sinon": "^1.17.3",
     "sinon-chai": "^2.8.0",
     "webpack-dev-middleware": "^1.6.1",
-    "webpack-hot-middleware": "^2.6.0"
+    "webpack-hot-middleware": "^2.6.0",
+    "@kadira/storybook": "^2.5.2"
   }
 }

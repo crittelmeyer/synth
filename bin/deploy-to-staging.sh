@@ -15,10 +15,10 @@ new_pkg_name="${pkg_name_no_ext}_${current_date}.${pkg_ext}"
 mv "$pkg_name" "$new_pkg_name"
 
 # copy package to staging server
-scp "$new_pkg_name" root@staging.hive.io:/root/hive
+scp "$new_pkg_name" root@staging.beatbox.io:/root/beatbox
 
 # copy "deploy" script to staging server
-scp bin/deploy.sh root@staging.hive.io:/root/hive
+scp bin/deploy.sh root@staging.beatbox.io:/root/beatbox
 
 # run remote "deploy" script
-ssh root@staging.hive.io "cd /root/hive; chmod +x deploy.sh; ./deploy.sh ${new_pkg_name}"
+ssh root@staging.beatbox.io "cd /root/beatbox; chmod +x deploy.sh; ./deploy.sh ${new_pkg_name}"
