@@ -1,8 +1,8 @@
 import { configure } from '@kadira/storybook'
 
 function loadStories() {
-  require('../stories/Pad')
-  require('../stories/PadGrid')
+  require('../stories/Oscillator')
+  require('../stories/Synthesizer')
 }
 
 configure(loadStories, module)

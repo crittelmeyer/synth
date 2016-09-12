@@ -2,7 +2,7 @@
 import React from 'react'
 import { storiesOf } from '@kadira/storybook'
 import StoryContainer from './StoryContainer'
-import PadGrid from 'components/PadGrid'
+import Synthesizer from 'components/Synthesizer'
 
 const pads = [
   {
@@ -37,14 +37,14 @@ const pads = [
   }
 ]
 
-storiesOf('PadGrid', module)
+storiesOf('Synthesizer', module)
   .add('standard', () => (
     <StoryContainer>
-      <PadGrid pads={pads} />
+      <Synthesizer pads={pads} />
     </StoryContainer>
   ))
   .add('error', () => (
     <StoryContainer>
-      <PadGrid errorMsg="this is an error!" />
+      <Synthesizer errorMsg="this is an error!" />
     </StoryContainer>
   ))
